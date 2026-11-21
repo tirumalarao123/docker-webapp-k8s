@@ -2,7 +2,8 @@
 # Then open http://localhost:8080 and register a new user to test
 services:
   devopsdb:
-    image: shaikmustafa/king:db
+    #image: tiru2002:db
+    build: ./Docker-db
     environment:
       MYSQL_ROOT_PASSWORD: localrootpass
       MYSQL_USER: vprofile
@@ -13,7 +14,8 @@ services:
       retries: 12
 
   app:
-    image: shaikmustafa/king:app
+    #image: shaikmustafa/king:app
+    build .
     ports:
       - "1234:8080"
     environment:
